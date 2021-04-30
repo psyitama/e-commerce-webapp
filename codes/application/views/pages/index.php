@@ -2,21 +2,17 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md navbar-light bg-gold sticky-top scrolling-navbar">
         <div class="container-fluid">
-
             <!-- Brand -->
             <a class="navbar-brand font-weight-bold" href="<?=base_url()?>">
                 Shop 88
             </a>
-
             <!-- Collapse button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
                 aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <!-- Links -->
             <div class="collapse navbar-collapse" id="basicExampleNav">
-
                 <!-- Right -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -43,7 +39,6 @@
                             up</a>
                     </li>
                 </ul>
-
             </div>
             <!-- Links -->
         </div>
@@ -57,42 +52,41 @@
 </header>
 
 <main>
-
     <div class="container">
         <div class="row d-flex justify-content-center">
-            <div class=" col-md-6">
-                <form>
-                    <div class="form-group">
-                        <label for="email">Email address</label>
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    <div class="text-center pb-2 mb-5">
-
-                        <button type="submit" class="btn bg-gold mb-4 waves-effect waves-light">Sign in</button>
-
-                        <p>Not a member? <a href="">Register</a></p>
-
-                        <p>or sign up with:</p>
-
-                        <a type="button" class="btn-floating btn-fb btn-sm mr-1">
-                            <i class="fab fa-facebook-square"></i>
-                        </a>
-                        <a type="button" class="btn-floating btn-tw btn-sm mr-1 text-info">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a type="button" class="btn-floating btn-li btn-sm mr-1">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a type="button" class="btn-floating btn-git btn-sm text-dark">
-                            <i class="fab fa-github"></i>
-                        </a>
-
-                    </div>
-                </form>
+            <div class=" col-md-6 mt-3">
+                <?php if ($this->session->flashdata('login_error') != null): ?>
+                <div class="alert alert-danger text-center" role="alert">
+                    <?=$this->session->flashdata('login_error')?>
+                </div>
+                <?php endif;?>
+                <?=form_open('pages/login')?>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" name="password">
+                </div>
+                <div class="text-center pb-2 mt-3">
+                    <input type="submit" class="btn bg-gold mb-4 waves-effect waves-light" value="Sign in">
+                    <p>Not a member? <a href="<?=base_url() . 'signup'?>">Register</a></p>
+                    <p>or sign up with:</p>
+                    <a type="button" class="btn-floating btn-fb btn-sm mr-1">
+                        <i class="fab fa-facebook-square"></i>
+                    </a>
+                    <a type="button" class="btn-floating btn-tw btn-sm mr-1 text-info">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a type="button" class="btn-floating btn-li btn-sm mr-1">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a type="button" class="btn-floating btn-git btn-sm text-dark">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+                <?=form_close()?>
             </div>
         </div>
     </div>

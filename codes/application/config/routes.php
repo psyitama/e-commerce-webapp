@@ -6,3 +6,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = false;
 
 $route['signup'] = 'pages/signup';
+
+$route['products'] = 'customers/index';
+
+$route['dashboard'] = 'sellers/index';

@@ -1,3 +1,33 @@
 .bg-gold{
     background-color: #ffcf40 !important;
 }
+
+.btn-gold{
+    background-color: #ffcf40 !important;
+}
+
+.text-gold{
+    color: #ffcf40 !important;
+}
+
+.btn-outline-success {
+    color: #ffcf40;
+    border-color: #ffcf40;
+}
+
+.btn-outline-success:hover {
+    color: #fff;
+    background-color: #ffcf40;
+    border-color: #ffcf40;
+}
+
+.card{
+    min-height: 350px !important;
+}
+
+.card img.card-img-top{
+    height: 200px;
+    width: auto;
+    max-width: 100%;
+    margin: autos;
+}
