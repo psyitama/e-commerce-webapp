@@ -32,7 +32,7 @@
                         </a>
                     </li>
                     <li class="nav-item pl-2 mb-2 mb-md-0">
-                        <a href="<?=base_url()?>" type="button"
+                        <a href="<?=base_url() . 'pages/logout'?>" type="button"
                             class="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light">
                             Sign out
                         </a>
@@ -45,107 +45,43 @@
     <!-- Navbar -->
 </header>
 
-<div class="container-fluid mt-3">
-    <div class="row">
-        <div class="col-2">
-            <form class="form-inline mb-3">
-                <input class="form-control col-10 mr-2" type="text" placeholder="Search" aria-label="Search">
-                <a href="#">
-                    <span class="material-icons mt-2 text-dark">search</span>
-                </a>
-            </form>
-            <div class="list-group">
-                <?php foreach ($categories as $category): ?>
-                <a href="#" class="list-group-item list-group-item-action"><?=$category['category']?></a>
-                <?php endforeach;?>
+<main>
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-2">
+                <form class="form-inline mb-3">
+                    <input class="form-control col-10 mr-2" type="text" placeholder="Search" aria-label="Search">
+                    <a href="#">
+                        <span class="material-icons mt-2 text-dark">search</span>
+                    </a>
+                </form>
+                <div class="list-group">
+                    <?php foreach ($categories as $category): ?>
+                    <a href="#" class="list-group-item list-group-item-action"><?=$category['category']?></a>
+                    <?php endforeach;?>
+                    <a href="#" class="list-group-item list-group-item-action">Show All</a>
+                </div>
             </div>
-        </div>
-        <div class="col-10">
-            <div class="row">
-                <div class="col-3 mt-1">
-                    <div class="card">
-                        <img src="<?=base_url() . 'assets/images/shirt.png'?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-title">Belt</p>
-                            <p class="font-weight-bold">$111</p>
-                            <a href="#" class="btn btn-gold">Buy</a>
+            <div class="col-10">
+                <div class="row">
+                    <?php foreach ($products as $product): ?>
+                    <div class="col-3 mt-1">
+                        <div class="card">
+                            <img src="<?=base_url() . 'uploads/' . $product['main_image_url']?>" class="card-img-top"
+                                alt="...">
+                            <div class="card-body">
+                                <p class="card-title"><?=$product['name']?></p>
+                                <p class="font-weight-bold"><?=$product['price']?></p>
+                                <a href="#" class="btn btn-gold">Buy</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-3 mt-1">
-                    <div class="card">
-                        <img src="<?=base_url() . 'assets/images/shirt.png'?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-title">Belt</p>
-                            <p class="font-weight-bold">$111</p>
-                            <a href="#" class="btn btn-gold">Buy</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3 mt-1">
-                    <div class="card">
-                        <img src="<?=base_url() . 'assets/images/shirt.png'?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-title">Belt</p>
-                            <p class="font-weight-bold">$111</p>
-                            <a href="#" class="btn btn-gold">Buy</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3 mt-1">
-                    <div class="card">
-                        <img src="<?=base_url() . 'assets/images/shirt.png'?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-title">Belt</p>
-                            <p class="font-weight-bold">$111</p>
-                            <a href="#" class="btn btn-gold">Buy</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3 mt-1">
-                    <div class="card">
-                        <img src="<?=base_url() . 'assets/images/shirt.png'?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-title">Belt</p>
-                            <p class="font-weight-bold">$111</p>
-                            <a href="#" class="btn btn-gold">Buy</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3 mt-1">
-                    <div class="card">
-                        <img src="<?=base_url() . 'assets/images/shirt.png'?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-title">Belt</p>
-                            <p class="font-weight-bold">$111</p>
-                            <a href="#" class="btn btn-gold">Buy</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3 mt-1">
-                    <div class="card">
-                        <img src="<?=base_url() . 'assets/images/shirt.png'?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-title">Belt</p>
-                            <p class="font-weight-bold">$111</p>
-                            <a href="#" class="btn btn-gold">Buy</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3 mt-1">
-                    <div class="card">
-                        <img src="<?=base_url() . 'assets/images/shirt.png'?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-title">Belt</p>
-                            <p class="font-weight-bold">$111</p>
-                            <a href="#" class="btn btn-gold">Buy</a>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- end of child row -->
-        </div>
-    </div> <!-- end of parent row -->
-</div>
+                    <?php endforeach;?>
+                </div> <!-- end of child row -->
+            </div>
+        </div> <!-- end of parent row -->
+    </div>
+</main>
 
 <footer>
     <div class="bg-dark text-secondary text-center mt-5 py-3">© 2021 Copyright:

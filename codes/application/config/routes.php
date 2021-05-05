@@ -10,3 +10,4 @@ $route['signup'] = 'pages/signup';
 $route['products'] = 'customers/index';
 
 $route['dashboard'] = 'sellers/index';
+$route['dashboard/products'] = 'sellers/products';

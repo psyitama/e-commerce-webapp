@@ -56,17 +56,17 @@
                 <?=form_open('pages/register')?>
                 <div class="form-group">
                     <label for="email">Email address</label>
-                    <input type="email" class="form-control" name="email">
+                    <input type="email" class="form-control" name="email" value="">
                     <span class="text-danger"><?=$this->session->flashdata('email')?></span>
                 </div>
                 <div class="form-group">
                     <label for="first_name">First Name</label>
-                    <input type="text" class="form-control" name="first_name">
+                    <input type="text" class="form-control" name="first_name" value="">
                     <span class="text-danger"><?=$this->session->flashdata('first_name')?></span>
                 </div>
                 <div class="form-group">
                     <label for="last_name">Last Name</label>
-                    <input type="text" class="form-control" name="last_name">
+                    <input type="text" class="form-control" name="last_name" value="">
                     <span class="text-danger"><?=$this->session->flashdata('last_name')?></span>
                 </div>
                 <div class="form-group">
