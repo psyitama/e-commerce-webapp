@@ -3,6 +3,11 @@ class Sellers extends CI_Controller
 {
     public function index()
     {
+        //check if user is signed-in
+        if ($this->session->userdata('is_logged_in') != true) {
+            redirect(base_url());
+        }
+
         $this->load->view('templates/header');
         $this->load->view('sellers/index');
         $this->load->view('templates/footer');
@@ -10,6 +15,11 @@ class Sellers extends CI_Controller
 
     public function products()
     {
+        //check if user is signed-in
+        if ($this->session->userdata('is_logged_in') != true) {
+            redirect(base_url());
+        }
+
         $this->load->view('templates/header');
         $this->load->view('sellers/products');
         $this->load->view('templates/footer');

@@ -1,3 +1,7 @@
+<?php
+//to identify pagination limits
+$rows = ceil($total_products / 8);
+?>
 <header>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md navbar-light bg-gold sticky-top scrolling-navbar">
@@ -66,23 +70,27 @@
             <div class="col-10">
                 <div class="row">
                     <div class="col-4">
-                        <h1 class="mt-n2">All Products</h1>
+                        <h1 class="mt-n2">
+                            <?=$active_category['category'] . ' (page ' . $current_page . ')'?>
+                        </h1>
                     </div>
                     <div class="col-3 ml-auto">
                         <nav aria-label="Page navigation example">
                             <ul class="pagination">
-                                <li class="page-item mr-1>">
-                                    <a class="page-link" href="#">
+                                <li class="page-item mr-1 <?=($current_page == 1) ? "disabled" : ""?>">
+                                    <a class="page-link"
+                                        href="<?=base_url() . 'products/categories/' . $current_category . '/' . ($current_page - 1)?>">
                                         <span aria-hidden="true">&laquo;</span>
                                     </a>
                                 </li>
-                                <li class="disabled">
-                                    <a class="page-link text-dark">
-                                        Total: <?=$total_products?>
+                                <li>
+                                    <a class="page-link disabled">
+                                        <?=$current_page?>
                                     </a>
                                 </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">
+                                <li class="page-item <?=($current_page == $rows) ? "disabled" : ""?>">
+                                    <a class="page-link"
+                                        href="<?=base_url() . 'products/categories/' . $current_category . '/' . ($current_page + 1)?>">
                                         <span aria-hidden="true">&raquo;</span>
                                     </a>
                                 </li>

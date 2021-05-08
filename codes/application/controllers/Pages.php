@@ -22,7 +22,7 @@ class Pages extends CI_Controller
     public function signup()
     {
         //check if user is signed-in
-        if ($this->session->userdata('is_logged_in') != true) {
+        if ($this->session->userdata('is_logged_in') == true) {
             //check the user level
             if ($this->session->userdata('user_level') == '1') {
                 redirect('products');

@@ -45,3 +45,11 @@ img.product-img{
 {
     vertical-align: middle;
 }
+
+.product-desc{
+    max-height: 400px;
+}
+
+.carousel-item img{
+    max-height: 200px;
+}

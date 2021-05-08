@@ -44,7 +44,7 @@ $(document).ready(function () {
     );
 
     //Get the target row ID for delete and update modals
-    $(document).on('click', '.update-modal, .delete-modal', function (e) {
+    $(document).on('click', '.update-modal, .delete-modal', function () {
         var _self = $(this);
 
         var selectedRowId = _self.data('id');
@@ -54,4 +54,20 @@ $(document).ready(function () {
         $('#update_id').val(selectedRowId);
         $('#delete_id').val(selectedRowId);
     });
+
+    //add to cart form
+    // $(document)
+
+    //add to cart success
+    $('.cart-success').hide();
+    $(document).on('click', '#add_cart_btn', function () {
+        $('.cart-success')
+            .fadeTo(2000, 500)
+            .slideUp(500, function () {
+                $('#success-alert').slideUp(500);
+            });
+    });
+
+    //carousel
+    $('#carouselExampleFade').carousel();
 });
