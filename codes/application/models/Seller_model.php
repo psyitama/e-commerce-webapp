@@ -75,4 +75,60 @@ class Seller_model extends CI_Model
             return $result;
         }
     }
+
+    public function get_order_statuses()
+    {
+        return $this->db->query("SELECT * FROM statuses")->result_array();
+    }
+
+    public function get_all_orders()
+    {
+        return $this->db->query("SELECT t.id, u.first_name, u.last_name,
+                                    t.status_id,
+                                    t.b_address, t.b_city,
+                                    t.b_state, t.b_zipcode,
+                                    t.total_price, t.created_at
+                                    FROM transactions AS t
+                                    LEFT JOIN users AS u
+                                    ON t.user_id = u.id")
+            ->result_array();
+    }
+
+    public function view_single_order($transaction_id)
+    {
+        return $this->db->query("SELECT t.id, u.first_name, u.last_name,
+                                    t.s_address, t.s_city,
+                                    t.s_state, t.s_zipcode,
+                                    t.b_address, t.b_city,
+                                    t.b_state, t.b_zipcode,
+                                    t.total_price, t.created_at,  t.status_id
+                                    FROM transactions AS t
+                                    LEFT JOIN users AS u
+                                    ON t.user_id = u.id
+                                    WHERE t.id=?", $transaction_id)
+            ->row_array();
+    }
+
+    public function get_ordered_items($transaction_id)
+    {
+        return $this->db->query("SELECT p.id,
+                                p.name, p.price,
+                                p.main_image_url, o.qty
+                                FROM products AS p
+                                LEFT JOIN orders AS o
+                                ON p.id = o.product_id
+                                WHERE o.transaction_id =?", $transaction_id)
+            ->result_array();
+    }
+
+    public function get_order_status($transaction_id)
+    {
+        return $this->db->query("SELECT s.id, s.status
+                                FROM statuses AS s
+                                LEFT JOIN transactions AS t
+                                ON s.id = t.status_id
+                                WHERE t.id =?", $transaction_id)
+            ->row_array();
+    }
+
 }

@@ -15,7 +15,7 @@
             <div class="collapse navbar-collapse" id="basicExampleNav">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a href="<?=base_url() . 'dashboard'?>" class="nav-link waves-effect">
+                        <a href="<?=base_url() . 'dashboard/orders'?>" class="nav-link waves-effect">
                             Orders
                         </a>
                     </li>

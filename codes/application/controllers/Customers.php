@@ -19,6 +19,13 @@ class Customers extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    //partial for cart's quantity
+    public function cart_qty_partial()
+    {
+        $this->load->view('partials/cart_qty');
+    }
+
+    //show product by target id
     public function show($product_id)
     {
         //check if user is signed-in
@@ -39,6 +46,7 @@ class Customers extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    //products pagination by their category and page number
     public function products_pagination($category, $page)
     {
         //check if user is signed-in
@@ -60,16 +68,21 @@ class Customers extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    //cart and checkout page view
     public function carts()
     {
+        $data = array(
+            'user' => $this->customer->get_customer_by_email($this->session->userdata('email')),
+        );
+
         $this->load->view('templates/header');
-        $this->load->view('customers/carts');
+        $this->load->view('customers/carts', $data);
         $this->load->view('templates/footer');
     }
 
+    //process for add item/add to cart
     public function add_item()
     {
-        var_dump($this->input->post());
         $item = array(
             'id' => $this->input->post('id'),
             'name' => $this->input->post('name'),
@@ -80,6 +93,17 @@ class Customers extends CI_Controller
 
         $this->cart->insert($item);
 
-        redirect('customers/carts');
+        $this->load->view('partials/cart_qty');
     }
+
+    //process for cart checkout
+    public function checkout()
+    {
+        // var_dump($this->input->post());
+        $id = $this->customer->pay_orders();
+        $this->customer->insert_ordered_items($id, $this->cart->contents());
+        $this->cart->destroy();
+        redirect(base_url() . 'customers/index');
+    }
+
 }

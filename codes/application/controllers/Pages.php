@@ -19,6 +19,7 @@ class Pages extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    //page view for signup
     public function signup()
     {
         //check if user is signed-in
@@ -36,6 +37,7 @@ class Pages extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    //process for registration/signup
     public function register()
     {
         $result = $this->page->validate_registration($this->input->post());
@@ -71,6 +73,7 @@ class Pages extends CI_Controller
         }
     }
 
+    //process for login/signin
     public function login()
     {
         $email = $this->input->post('email');
@@ -99,12 +102,14 @@ class Pages extends CI_Controller
         }
     }
 
+    //process for logout/signout
     public function logout()
     {
         $this->session->sess_destroy();
         redirect(base_url());
     }
 
+    //process to check user level for designated page
     public function check_user_level($email)
     {
         $user = $this->page->get_user_by_email($email);

@@ -71,87 +71,103 @@ $total_price = 0;
 
         <div class="row">
             <div class="col-12">
-                <form>
-                    <h3>Shipping Information</h3>
-                    <div class="form-group row">
-                        <label for="s_first_name" class="col-sm-2 col-form-label">First Name:</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="s_first_name" id="s_first_name">
-                        </div>
+                <?=form_open(base_url() . 'customers/checkout', 'id="payment-form"')?>
+                <h3>Shipping Information</h3>
+                <input type="hidden" name="total_price" id="total_price" value="<?=$total_price?>">
+                <div class="form-group row">
+                    <label for="s_first_name" class="col-sm-2 col-form-label">First Name:</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="s_first_name" id="s_first_name"
+                            value="<?=$user['first_name']?>">
                     </div>
-                    <div class="form-group row">
-                        <label for="s_last_name" class="col-sm-2 col-form-label">last Name:</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="s_last_name" id="s_last_name">
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label for="s_last_name" class="col-sm-2 col-form-label">last Name:</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="s_last_name" id="s_last_name"
+                            value="<?=$user['last_name']?>">
                     </div>
-                    <div class="form-group row">
-                        <label for="s_address" class="col-sm-2 col-form-label">Address:</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="s_address" id="s_address">
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label for="s_address" class="col-sm-2 col-form-label">Address:</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="s_address" id="s_address">
                     </div>
-                    <div class="form-group row">
-                        <label for="s_city" class="col-sm-2 col-form-label">City:</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="s_city" id="s_city">
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label for="s_city" class="col-sm-2 col-form-label">City:</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="s_city" id="s_city">
                     </div>
-                    <div class="form-group row">
-                        <label for="s_state" class="col-sm-2 col-form-label">State</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="s_state" id="s_state">
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label for="s_state" class="col-sm-2 col-form-label">State</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="s_state" id="s_state">
                     </div>
-                    <div class="form-group row">
-                        <label for="s_zip" class="col-sm-2 col-form-label">Zipcodes:</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="s_zip" id="s_zip">
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label for="s_zip" class="col-sm-2 col-form-label">Zipcodes:</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="s_zip" id="s_zip">
                     </div>
-                    <h3 class="mt-3">Billing Information</h3>
-                    <div class="form-check mb-2">
-                        <input class="form-check-input" type="checkbox" value="" id="same_as_chk">
-                        <label class="form-check-label" for="same_as_chk">
-                            Same as Shipping
-                        </label>
+                </div>
+                <h3 class="mt-3">Billing Information</h3>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" value="" id="same_as_chk">
+                    <label class="form-check-label" for="same_as_chk">
+                        Same as Shipping
+                    </label>
+                </div>
+                <div class="form-group row">
+                    <label for="b_first_name" class="col-sm-2 col-form-label">First Name:</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="b_first_name" id="b_first_name"
+                            value="<?=$user['first_name']?>">
                     </div>
-                    <div class="form-group row">
-                        <label for="b_first_name" class="col-sm-2 col-form-label">First Name:</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="b_first_name" id="b_first_name">
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label for="b_last_name" class="col-sm-2 col-form-label">last Name:</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="b_last_name" id="b_last_name"
+                            value="<?=$user['last_name']?>">
                     </div>
-                    <div class="form-group row">
-                        <label for="b_last_name" class="col-sm-2 col-form-label">last Name:</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="b_last_name" id="b_last_name">
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label for="b_address" class="col-sm-2 col-form-label">Address:</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="b_address" id="b_address">
                     </div>
-                    <div class="form-group row">
-                        <label for="b_address" class="col-sm-2 col-form-label">Address:</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="b_address" id="b_address">
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label for="b_city" class="col-sm-2 col-form-label">City:</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="b_city" id="b_city">
                     </div>
-                    <div class="form-group row">
-                        <label for="b_city" class="col-sm-2 col-form-label">City:</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="b_city" id="b_city">
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label for="b_state" class="col-sm-2 col-form-label">State</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="b_state" id="b_state">
                     </div>
-                    <div class="form-group row">
-                        <label for="b_state" class="col-sm-2 col-form-label">State</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="b_state" id="b_state">
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label for="b_zip" class="col-sm-2 col-form-label">Zipcodes:</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="b_zip" id="b_zip">
                     </div>
-                    <div class="form-group row">
-                        <label for="b_zip" class="col-sm-2 col-form-label">Zipcodes:</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="b_zip" id="b_zip">
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label for="card-element" class="col-sm-2 col-form-label">
+                        Credit or debit card
+                    </label>
+                    <div class="col-sm-4 mt-2" id="card-element">
+                        <!-- A Stripe Element will be inserted here. -->
                     </div>
+                </div>
+                <!-- Used to display Element errors. -->
+                <div class="text-danger" id="card-errors" role="alert"></div>
+                <input class="col-6 btn btn-primary" type="submit" value="Pay">
                 </form>
             </div>
         </div>

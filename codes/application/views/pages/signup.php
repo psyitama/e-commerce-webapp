@@ -17,7 +17,7 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a href="<?=base_url()?>" class="nav-link navbar-link-2 waves-effect">
-                            <span class="badge badge-danger">1</span>
+                            <span class="badge badge-danger">0</span>
                             <i class="fas fa-shopping-cart pl-0"></i>
                         </a>
                     </li>

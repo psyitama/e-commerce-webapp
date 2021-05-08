@@ -17,7 +17,7 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a href="<?=base_url() . 'customers/carts'?>" class="nav-link navbar-link-2 waves-effect">
-                            <span class="badge badge-danger"><?=count($this->cart->contents())?></span>
+                            <span class="badge badge-danger" id="cart_qty"></span>
                             <i class="fas fa-shopping-cart pl-0"></i>
                         </a>
                     </li>
@@ -46,6 +46,9 @@
                 <div class="cart-success alert alert-success" role="alert">
                     Item added to the cart.
                 </div>
+                <div class="cart-failed alert alert-danger" role="alert">
+                    Please enter a quantity.
+                </div>
                 <?=form_open('customers/add_item', 'id="add_item"')?>
                 <div class="form-group">
                     <label for="add-cart-qty">Quantity</label>
@@ -53,7 +56,7 @@
                     <input type="hidden" name="name" value="<?=$product['name']?>">
                     <input type="hidden" name="price" value="<?=$product['price']?>">
                     <input type="hidden" name="image" value="<?=$product['main_image_url']?>">
-                    <input type="number" class="form-control" id="qty" name="qty" min="1">
+                    <input type="number" class="form-control" id="item_qty" name="qty" min="1">
                 </div>
                 <input class="btn btn-gold" id="add_cart_btn" type="submit" value="Add to cart">
                 <?=form_close()?>
@@ -70,7 +73,7 @@
                     <div class="row">
                         <?php for ($i = 0; $i < 4; $i++): ?>
                         <div class="col-3">
-                            <a href="">
+                            <a href="<?=base_url() . 'products/show/' . $related_products[$i]['id']?>">
                                 <img src="<?=base_url() . 'uploads/' . $related_products[$i]['main_image_url']?>"
                                     class="d-block w-100" alt="...">
                             </a>
@@ -83,7 +86,7 @@
                     <div class="row">
                         <?php for ($i = 4; $i < 8; $i++): ?>
                         <div class="col-3">
-                            <a href="">
+                            <a href="<?=base_url() . 'products/show/' . $related_products[$i]['id']?>">
                                 <img src="<?=base_url() . 'uploads/' . $related_products[$i]['main_image_url']?>"
                                     class="d-block w-100" alt="...">
                             </a>

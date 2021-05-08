@@ -17,7 +17,7 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a href="#!" class="nav-link navbar-link-2 waves-effect">
-                            <span class="badge badge-danger d-inline-block align-top mt-1">1</span>
+                            <span class="badge badge-danger d-inline-block align-top mt-1">0</span>
                             <i class="material-icons">
                                 shopping_cart
                             </i>

@@ -13,4 +13,6 @@ $route['products/show/(:any)'] = 'customers/show/$1';
 $route['carts'] = 'customers/carts';
 // seller
 $route['dashboard'] = 'sellers/index';
+$route['dashboard/orders'] = 'sellers/orders';
 $route['dashboard/products'] = 'sellers/products';
+$route['orders/show/(:any)'] = 'sellers/view_transaction/$1';
