@@ -1,6 +1,6 @@
-# E-commerce Website Capstone Project
+# Apparel Store
 
-An e-commerce website built with CodeIgniter and Bootstrap
+An e-commerce web app built with CodeIgniter and Bootstrap
 
 ## Technology used
 
